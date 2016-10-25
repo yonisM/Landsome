@@ -1,4 +1,5 @@
-<ion-side-menus enable-menu-with-back-views="false">
+
+   <ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-stable">
             <ion-nav-back-button></ion-nav-back-button>
@@ -20,9 +21,21 @@
                 <ion-item class="positive" id="dashboard-list-item" ui-sref="dashboard.step4AdditionalInformationAboutYourself" menu-close="">Step 4: Additional Information</ion-item>
                 <ion-item class="positive" id="dashboard-list-item" ui-sref="dashboard.step5AddSampleWorkS" menu-close="">Step 5: Sample Work</ion-item>
                 <ion-item class="positive" id="dashboard-list-item" ui-sref="dashboard.step6AddAdditionalExperience" menu-close="">Step 6: Additional Experience</ion-item>
+                <ion-item class="positive" id="dashboard-list-item" ui-sref="" menu-close="">About Landsome Portfolio</ion-item>
+                <ion-item class="positive" id="dashboard-list-item" ui-sref="" menu-close="">Our Portfolio Themes</ion-item>
+                <button type = "submit" class="btn btn-success btn-block borders" ui-sref="dashboard.login" menu-close=""> Login </button>
+                
+                <button type = "submit" class="btn btn-danger btn-block borders" ui-sref="dashboard.signup" menu-close=""> Sign Up </button>
+                 <a href="http://testyonis.x10host.com/index.html" class="btn btn-danger btn-block borders" target="_blank" role="button">Preview My Theme</a>
+                <button type = "submit" class="btn btn-success btn-block borders" ui-sref="" menu-close=""> Ready to checkout </button>
+                
+                 <button type = "submit" class="btn btn-primary btn-block borders" ui-sref="dashboard.login" 
+                 ng-click ="triggerLogoutAlert()" menu-close=""> Log out</button>
             </ion-list>
+          
         </ion-content>
     </ion-side-menu>
+	
 
 
 
