@@ -4,7 +4,389 @@
        
        
       <a href =""> <span class = "glyphicon glyphicon-chevron-left"></span>Back </a> 
+       <div class="panel-group" id="accordion" style="margin-top:10px;">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#44dafc;">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Step 1: Theme</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body"> 
+            <div class="col-xs-12 col-sm-3" ng-controller = "step1SelectAThemeCtrl" style = "margin-bottom:50px;" ng-repeat = "x in theme|orderBy:'themeNumber'">
+             <label class = "radio-inline" > <h4 class="text-center">Theme {{x.themeNumber}}</h4>
+                <a href="{{x.hyperlink}}"> <img src="{{x.image}}"  width = "400px"  height = "15px" id ="themeImage"  alt="" class="img-responsive center-block"> </a>
+                </label>
+           
+	      </div>
+	      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#44dafc;">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Step 2: Personal Details</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body">
+           <form  name = "step1PersonalDetails " class="form-horizontal" novalidate>
+           <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" >First Name <span id="asterisks">&#42;</span></label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control"  name="firstName" ng-model = "customerDetails.firstName" id="allInputFieldsStyling" required>
+                    <p ng-show="step1PersonalDetails.firstName.$error.required && step1PersonalDetails.firstName.$dirty " style="color:maroon "> Please Enter your first name </p>
+                </div>
+                
+           </div>
+           <div class="form-group">
+               <label class="control-label col-sm-4 input-md">Last Name <span id="asterisks">&#42;</span></label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control" name="lastName" ng-model = "customerDetails.lastName" id="allInputFieldsStyling" required>
+                <p ng-show="step1PersonalDetails.lastName.$error.required && step1PersonalDetails.lastName.$dirty " style="color:maroon "> Please Enter your last name </p>
+                </div>
+           </div>
+           <div class="form-group">
+               <label class="control-label col-sm-4 input-md" >Email Address <span style="color:red;">&#42;</span></label>
+                <div class="col-sm-4">
+                <input type="email" class="form-control" name="email" ng-model = "customerDetails.email" id="allInputFieldsStyling" required>
+                   <p ng-show="step1PersonalDetails.email.$error.required && !step1PersonalDetails.email.$pristine " style="color:maroon "> Please Enter your Email address </p>
+                   <p ng-show="step1PersonalDetails.email.$invalid && step1PersonalDetails.email.$dirty " style="color:maroon "> Please Enter a valid Email address </p>
+                   
+                </div>
+                 
+           </div>
+           <div class="form-group">
+               <label class="control-label col-sm-4 input-md" >Phone Number</label>
+                <div class="col-sm-4">
+                <input type="email" class="form-control" ng-model = "customerDetails.phoneNumber" id="allInputFieldsStyling">
+                </div>
+           </div>
+           <div class="form-group">
+               <label class="control-label col-sm-4 input-md" >LinkedIn Link</label>
+                <div class="col-sm-4">
+                <input type="text" class="form-control"  ng-model="customerDetails.linkedin" id="allInputFieldsStyling">
+                </div>
+           </div>
+           <div class="form-group">
+               <label class="control-label col-sm-4 input-md" >Attach your resume </label>
+                <div class="col-sm-5">
+                 <input type="file" class="btn btn-default btn-file" name="resume" ng-model = "customerDetails.resume">
+                </div>
+           </div>
+             <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="profile">Add a Profile Picture</label>
+                <div class="col-sm-4">
+                 <input type="file" class="btn btn-default btn-file">
+                </div>
+            </div>
+          
+               <p class="text-center">Don't Have a CV/Resume? No worries, click <a href="#">Here</a> to quickly create your own.
+               Remember! We will also edit your CV for you. 
+               </p>
+      <div class="form-group">
+	   <div class="col-xs-12">
+           <button type = "submit" class="btn btn-danger btn-block borders" id = "button1"   ng-click = "sendDetails()"> Save </button>
+	   </div>
+	   </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#44dafc;">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+       Step 3: Summary</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+          <form class="form-horizontal" >
+           
+         <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="rename">Portfolio Page Heading</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="Amanda Legum" id="allInputFieldsStyling">
+                </div>
+        </div>   
+        
+        
+        <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="rename">Portfolio Page Sub-Heading</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="PHD Econometrics, University of Horowitz" id="allInputFieldsStyling">
+                </div>
+        </div> 
+           
+       <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="rename">Heading</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" placeholder="Summary" id="allInputFieldsStyling">
+                </div>
+        </div>
+            <div class="form-group"  >
+               <label class="control-label col-sm-4" for="summary">Summary Section</label>
+                <div class="col-sm-5">
+                <textarea class="form-control" rows="11"  id="allInputFieldsStyling" placeholder="Amanda is originally from Malaysia where she graduated with a firs-class degree in Economics from the University of Hogwartz. She Obtained a distinction in a MSC development Economics from the University of Horowitz in 2013, and began her PhD in Econometrics the following year. Samantha doctoral project is supervised by professor Nunzio Sitorious, and her research is currently self-funded"></textarea>
+                </div>
+           </div>
+           
+           <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="name_button">Name of button </label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" ng-model ="x.button" style="padding:10px; border:1px solid black;" placeholder="View my CV/Resume">
+                </div>
+           </div>  
+          
+     
+          
+      <div class = "form-group">
+	   <div class="col-xs-12">
+	         <button type = "submit" class="btn btn-danger btn-block borders" id="button1">Save</button>
+	   </div>
+	   </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#44dafc;">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+       Step 4: Additional Information</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+           <form class="form-horizontal" >
        
+       <div class="col-sm-12 text-center" style ="margin-bottom:20px;">
+             <input type="checkbox" ng-model="isChecked" value=""> Tick to include this section in your Portfolio
+        </div>
+
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="heading">Field of research</label>
+                <div class="col-sm-5">
+                <input type="text" ng-disabled="!isChecked" class="form-control" placeholder="Field of research" style="padding:10px;border:1px solid black;">
+                </div>
+           </div>
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="summary">Summary Section</label>
+                <div class="col-sm-5">
+                <textarea class="form-control" ng-disabled="!isChecked" rows="6" id="summary" placeholder="Amanda has keen interest Econometrics and developmental economics with particular emphasis on policy decisions made in Malaysia"  style="padding:10px;border:1px solid black;"></textarea>
+                </div>
+           </div>
+           <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="resume">Include an image</label>
+                <div class="col-sm-4">
+                 <input type="file" class="btn btn-default btn-file" ng-disabled="!isChecked">
+                </div>
+           </div>
+          <div class = "form-group">
+	   <div class="col-xs-12">
+	         <button type = "submit" class="btn btn-danger btn-block borders"  id="button1">Save</button>
+	   </div>
+	   </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#44dafc;">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+       Step 5: Sample Work</a>
+      </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse">
+      <div class="panel-body">
+          <form class="form-horizontal"  >
+        <div class = col-xs-12>
+      
+         <p class="text-center" style="font-weight:bold;">Sample Work  1</p>
+            
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="heading">Heading</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  style="padding:10px; border:1px solid black;" ng-model = "x.heading">
+                </div>
+           </div>
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="title">Title of work</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  style="padding:10px; border:1px solid black;"  ng-model = "x.title">
+                </div>
+           </div>
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="authors">Author(s)</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  style="padding:10px; border:1px solid black;" ng-model = "x.author">
+                </div>
+           </div>
+             <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="pub">Date of publication:</label>
+                <div class="col-sm-5">
+               <input type="date" class="form-control"  style="padding:10px; border:1px solid black;" ng-model = "x.date">
+                </div>
+           </div>
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="name_of_pub">Name of Publication:<br>Only required for published<br> academic papers</label>
+                <div class="col-sm-5">
+               <input type="text" class="form-control"  style="padding:10px; border:1px solid black;" ng-model = "x.publication">
+                </div>
+           </div>
+           <div class="form-group"  >
+               <label class="control-label col-sm-4" for="description">Description of sample work</label>
+                <div class="col-sm-5">
+                <textarea class="form-control" rows="11"  id="summary" style="padding:10px;border:1px solid black;"  ng-model = "x.description"></textarea>
+                </div>
+           </div>
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="attach">Attach your sample work</label>
+                <div class="col-sm-4">
+                 <input type="file" class="btn btn-default btn-file" ng-model = "x.sampleFile">
+                </div>
+           </div>
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="URL">Add URL links of your work</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  style="padding:10px; border:1px solid black;" ng-model = "x.sampleWorkURL" >
+                </div>
+           </div>
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="attach"  >Include an Image for this section</label>
+                <div class="col-sm-4">
+                 <input type="file" class="btn btn-default btn-file" ng-model = "x.image">
+                </div>
+           </div>
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="name_button" >Name of button </label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  style="padding:10px; border:1px solid black;"  ng-model = "x.button">
+                </div>
+           </div>
+         
+              <div class = "form-group">
+	   <div class="col-xs-12">
+	         <button type = "submit" class="btn btn-danger btn-block borders" id="button1">Save</button>
+	   </div>
+	   </div>
+        </div>
+          </form>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color:#44dafc;">
+      <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+       Step 6: Additional Experience</a>
+      </h4>
+    </div>
+    <div id="collapse6" class="panel-collapse collapse">
+      <div class="panel-body">
+          <form class="form-horizontal">
+             <div class="col-sm-12 text-center" style ="margin-bottom:20px;">
+                <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="heading">Heading</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" ng-model = "additionalXP.heading" placeholder="" id="allInputFieldsStyling">
+                </div>
+           </div>
+              <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="summary">Summary of your experience </label>
+                <div class="col-sm-5">
+                <textarea class="form-control"  rows="13"  id="allInputFieldsStyling" placeholder="" ng-model ="additionalXP.summary" ></textarea>
+                </div>
+              </div>
+            
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="profile">Include an Image for this section</label>
+                <div class="col-sm-4">
+                 <input type="file"  class="btn btn-default btn-file" ng-model ="additionalXP.image">
+                </div>
+            </div>
+                
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="name_button" >Name of button </label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  id="allInputFieldsStyling" placeholder="" ng-model ="additionalXP.button">
+                </div>
+           </div>
+                <hr id = "divider"> 
+                
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="heading">Portfolio Page Heading<br>(2nd page) </label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" ng-model ="additionalXP.secondpageheading"  placeholder="" id="allInputFieldsStyling">
+                </div>
+           </div>
+                
+            <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="heading">Portfolio Page Sub-Heading<br>(2nd page)</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control" ng-model ="additionalXP.secondpagesubheading"  id="allInputFieldsStyling">
+                </div>
+           </div>
+                            
+            
+                <hr id = "divider"> 
+                   
+               
+            
+                <h4  >Details of Experience  1</h4>
+            
+                <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="heading">Heading</label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  ng-model = "x.heading"  id="allInputFieldsStyling">
+                </div>
+           </div>
+              <div class="form-group"  >
+               <label class="control-label col-sm-4 input-md" for="summary">Provide Supporting Information </label>
+                <div class="col-sm-5">
+                <textarea class="form-control"  rows="8"  id="allInputFieldsStyling" ng-model ="x.summary" ></textarea>
+                </div>
+              </div>
+                
+              <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="profile">Attach a Document</label>
+                <div class="col-sm-4">
+                 <input type="file"  class="btn btn-default btn-file">
+                </div>
+             </div>
+                
+            
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="profile">Include an Image</label>
+                <div class="col-sm-4">
+                 <input type="file"  class="btn btn-default btn-file" "x.image">
+                </div>
+             </div>
+            
+            <div class="form-group">
+               <label class="control-label col-sm-4 input-md" for="name_button">Name of button </label>
+                <div class="col-sm-5">
+                <input type="text" class="form-control"  ng-model ="x.button" style="padding:10px; border:1px solid black;" placeholder="">
+                </div>
+        </div>
+    
+            <div class = "form-group">
+	   <div class="col-xs-12">
+	         <button type = "submit" class="btn btn-danger btn-block borders"  id="button1" >Save</button>
+	   </div>
+	   </div>
+     </div>
+            </form>
+          
+          
+      </div>
+    </div>
+  </div>
+</div>
        
         </div>
     </ion-content>
