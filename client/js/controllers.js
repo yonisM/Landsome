@@ -650,10 +650,10 @@ function ($scope, $stateParams, Customer,$state) {
 
 }])
    
-.controller('step5AddSampleWorkSCtrl', ['$scope', '$stateParams','Customer','$state','ModalService','Container', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+.controller('step5AddSampleWorkSCtrl', ['$scope', '$stateParams','Customer','$state','ModalService','Container','FileUploader', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams,Customer,$state,ModalService,Container) {
+function ($scope, $stateParams,Customer,$state,ModalService,Container,FileUploader) {
     
 
 //Open and Close Sample Work 1 Modal 
@@ -701,28 +701,32 @@ function ($scope, $stateParams,Customer,$state,ModalService,Container) {
      
 /*Return sectionSaveds values.See the Controller step2AddPersonalDetailsCtrl for more information */
     $scope.sectionhasbeensaved = Customer.sectionSaveds({id:id});
-
-
     
-// Get Container Details   
-var landsome = "landsome";
-var fileToDownload = "Yonis initial analysis nerai website.docx"; 
     
-  var load = Container.getFile({container:landsome},{files:fileToDownload});
+    //Upload a file 
+    var landsome = "landsome";
+    $scope.uploadstatus = "";
+            
+ var uploader = $scope.uploader = new FileUploader({
+      scope: $scope,                          // to automatically update the html. Default: $rootScope
+      url: '/api/containers/landsome/upload',
+      formData: [
+        { key: 'value' }
+      ]
+    });
+        
+
+   // Get Container Details   
+  var load = Container.getFiles({container:landsome});
   $scope.load = load; 
     
-    
-$scope.download = function(landsome,fileToDownload){
-    Container.getFile({container:landsome},{files:fileToDownload});
-};    
-    
-
+  
 }])
 
 
 
-.controller('sample1Ctrl', ['$scope','$stateParams','Customer','$q','$state',
-        function ($scope, $stateParams,Customer,$q,$state,Container,FileUploader) {
+.controller('sample1Ctrl', ['$scope','$stateParams','Customer','$q','$state','Container',
+        function ($scope, $stateParams,Customer,$q,$state,Container,FileUploader,Container) {
   
 //Get Current Customer's User ID. 
      var id = Customer.getCurrentId();
@@ -759,7 +763,6 @@ $scope.updateSample1 = function(){
       location.reload();
             }); 
     };      
-            
             
           
             

@@ -55,6 +55,10 @@
 }
 
 
+.fill {
+    padding-bottom: 10%;
+}
+
 
 #divider{
     border:1px solid black;
@@ -105,6 +109,12 @@
         width:100%;
         }
     
+     #button2 {
+        margin-top:20px;
+        margin-bottom:20px; 
+        width:50%;
+        margin-left:25%;
+        }
     #mobileInfo{
         margin-bottom:20px;
         margin-left:20px;
@@ -135,6 +145,12 @@
     margin-left: 5%;
     margin-bottom: 15px;
 }
+    
+    .fill {
+    padding-bottom: 10%;
+    
+}
+    
     
 }
 
@@ -174,6 +190,10 @@
     margin-bottom: 15px;
 }
     
+.fill {
+    padding-bottom: 5%;
+}
+    
     
 }
 
@@ -194,8 +214,11 @@
     margin-bottom: 40px;
     border: 1px solid black;
     width:31%;
-    margin-left:1%;
+    margin-left:1%;  
+}
     
+.fill {
+    padding-bottom: 10%;
 }
      
 }
